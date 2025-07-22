@@ -1,4 +1,4 @@
-sudo apt update && sudo apt upgrade -y && sudo apt install nano -y && sudo apt install curl -y && sudo apt install openssh-server -y && sudo apt install net-tools -y && sudo apt install htop -y && sudo apt install # Create the keyrings directory
+sudo apt update && sudo apt upgrade -y && sudo apt install nano -y && sudo apt install curl -y && sudo apt install git -y && sudo apt install openssh-server -y && sudo apt install net-tools -y && sudo apt install htop -y && sudo apt install # Create the keyrings directory
 
 # Make keyring directory
 sudo mkdir -p /etc/apt/keyrings
