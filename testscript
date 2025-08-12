@@ -154,7 +154,8 @@ echo "[+] Restarting Mumble service..."
 sudo systemctl restart mumble-server | tee "$LOG_DIR/mumble_restart.log"
 
 # === 13. RTSP Setup ===
-sudo sed -i 's/^  all_others:.*/  all_others:\n    source: publisher/' /etc/mediamtx/mediamtx.yml
+CONFIG="/home/${SUDO_USER:-$USER}/mediamtx.yml"
+sudo sed -i 's/^  all_others:.*/  all_others:\n    source: publisher/' "$CONFIG"
 sudo systemctl restart mediamtx
 
 # === Completion ===
