@@ -52,12 +52,10 @@ sudo apt install --allow-change-held-packages -y \
   openssh-server openssh-client ssh net-tools dialog dos2unix | tee "$LOG_DIR/apt_install.log"
 echo "[+] Dependency installation complete."
 
-# --- Mumble non-interactive fix (create DB dir, ensure ini, enable) ---
-sudo install -d -o mumble -g mumble -m 750 /var/lib/mumble-server
-sudo test -f /etc/mumble/mumble-server.ini || sudo touch /etc/mumble/mumble-server.ini
-sudo chown root:root /etc/mumble/mumble-server.ini
+sudo install -d -o mumble-server -g mumble-server -m 750 /var/lib/mumble-server
+sudo test -f /etc/mumble-server.ini || sudo touch /etc/mumble-server.ini
+sudo chown root:root /etc/mumble-server.ini
 sudo systemctl enable --now mumble-server
-# --- end fix ---
 
 # === 3. Enable and Start Docker, SSH, and MediaMTX Services ===
 echo "[+] Enabling and starting Docker and SSH services..."
