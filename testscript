@@ -255,7 +255,7 @@ sudo systemctl restart mumble-server | tee "$LOG_DIR/mumble_restart.log"
 # === 13. RTSP Setup ===
 CONFIG="/home/${SUDO_USER:-$USER}/mediamtx.yml"
 sudo sed -i 's/^  all_others:.*/  all_others:\n    source: publisher/' "$CONFIG"
-sudo systemctl restart mediamtx
+sudo systemctl restart "mediamtx@${SUDO_USER:-$USER}"
 
 # === Completion ===
 echo "[✓] Full compute stack deployed on Orange Pi 5 Plus:"
